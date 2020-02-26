@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <mat-form-field>
+      <input type="text" matInput placeholder="Email" [(ngModel)]="email" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        type="password"
+        matInput
+        placeholder="Password"
+        [(ngModel)]="password"
+      />
+    </mat-form-field>
+
+    <div class="button">
+      <button type="submit" mat-button (click)="login()">Login</button>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,31 @@
+<mat-expansion-panel *ngFor="let req of reqs; let i = index">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{ req.description }}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <p>Bedroom Number: {{ req.bedroomNum }}</p>
+
+  <p>
+    Bathroom Number:
+    {{ req.bathroomNum }}
+  </p>
+  <p>Property Type: {{ req.propType }}</p>
+
+  <p>
+    Unit Area:
+    {{ req.unitArea }}
+  </p>
+
+  <p>
+    Rent Value:
+    {{ req.rentValue }}
+  </p>
+
+  <p>Buy Value: {{ req.buyValue }}</p>
+  <mat-action-row>
+    <button mat-button color="warn" (click)="reject(i)">Reject</button>
+    <button mat-button color="primary" (click)="accept(i)">Accept</button>
+  </mat-action-row>
+</mat-expansion-panel>

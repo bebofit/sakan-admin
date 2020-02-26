@@ -1,0 +1,36 @@
+.example-container {
+  height: 100vh;
+}
+
+.mat-drawer.mat-drawer-side {
+  width: 256px;
+  max-height: calc(100% - 0px);
+  background-color: rgb(32, 64, 125);
+  border-color: rgb(32, 64, 125);
+}
+.mat-drawer-content {
+  padding: 30px 0px 0px 256px;
+}
+
+.mat-list-base .mat-list-item {
+  color: white;
+}
+
+.mat-card {
+  width: 60% !important;
+}
+
+.sidenav {
+  width: 250px;
+  box-shadow: 3px 0 6px rgba(0, 0, 0, 0.24);
+}
+
+.topnav-icon {
+  text-decoration: none;
+  display: flex;
+  color: #fff;
+}
+
+.mat-list-base .mat-list-item .mat-list-icon {
+  padding: 12px !important;
+}
