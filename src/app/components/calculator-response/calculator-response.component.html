@@ -1,0 +1,15 @@
+<div class="container text-center justify-content-center" *ngIf="!data">
+    <div class="spinner-border text-info"></div>
+</div>
+<div class="container text-center" *ngIf="data">
+    <div class="p-3">
+        <div>
+            <p><strong>Total Rent Collected in Cash: </strong>{{data.actualRentCollectionCash}}</p>
+            <p><strong>Total SW Collected in Cash: </strong>{{data.actualSwSellCollectionCash}}</p>
+            <p><strong>Profit Percentage: </strong>{{data.profitPercentage}} %</p>
+
+
+        </div>
+        <button class="btn btn-success" (click)="Ok()">Ok</button>
+    </div>
+</div>

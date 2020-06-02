@@ -1,0 +1,149 @@
+<div class="container p-3">
+    <form (ngSubmit)="onSubmit()" [formGroup]="calculatorForm">
+
+        <div class="form-group">
+            <label for="SwRentCommissionPercentage">SW Rent Commission Percentage:</label>
+            <input type="text" id="SwRentCommissionPercentage" class="form-control"
+                formControlName="SwRentCommissionPercentage">
+            <span class="help-block"
+                *ngIf="!calculatorForm.get('SwRentCommissionPercentage').valid && calculatorForm.get('SwRentCommissionPercentage').touched">
+                <span *ngIf="calculatorForm.get('SwRentCommissionPercentage').errors['min'] ||
+                calculatorForm.get('SwRentCommissionPercentage').errors['max']
+                ">Please
+                    Enter a value between 0-100</span>
+                <span *ngIf="calculatorForm.get('SwRentCommissionPercentage').errors['required']">This Field is
+                    Required</span>
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label for="InvestorSellCommissionPercentage">Investor Sell Commission Percentage:</label>
+            <input type="text" id="InvestorSellCommissionPercentage" class="form-control"
+                formControlName="InvestorSellCommissionPercentage">
+            <span class="help-block"
+                *ngIf="!calculatorForm.get('InvestorSellCommissionPercentage').valid && calculatorForm.get('InvestorSellCommissionPercentage').touched">
+                <span *ngIf="calculatorForm.get('InvestorSellCommissionPercentage').errors['min'] ||
+                calculatorForm.get('InvestorSellCommissionPercentage').errors['max']
+                ">Please
+                    Enter a value between 0-100</span>
+                <span *ngIf="calculatorForm.get('InvestorSellCommissionPercentage').errors['required']">This Field is
+                    Required</span>
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label for="CustomerSellCommissionPercentage">Customer Sell Commission Percentage:</label>
+            <input type="text" id="CustomerSellCommissionPercentage" class="form-control"
+                formControlName="CustomerSellCommissionPercentage">
+            <span class="help-block"
+                *ngIf="!calculatorForm.get('CustomerSellCommissionPercentage').valid && calculatorForm.get('CustomerSellCommissionPercentage').touched">
+                <span *ngIf="calculatorForm.get('CustomerSellCommissionPercentage').errors['min'] ||
+                calculatorForm.get('CustomerSellCommissionPercentage').errors['max']
+                ">Please
+                    Enter a value between 0-100</span>
+                <span *ngIf="calculatorForm.get('CustomerSellCommissionPercentage').errors['required']">This Field is
+                    Required</span>
+            </span>
+        </div>
+        <div formArrayName="units">
+            <h4>Your Units (Add as many units as You Want)</h4>
+            <p>Please Note only one Unit can be bought</p>
+            <button class="btn btn-info mb-3" type="button" (click)="onAddUnit()">Add Unit</button>
+
+            <div class="form-group" *ngFor="let unit of controls; let i = index" [formGroup]="unit">
+                <button class="btn btn-danger mb-3" type="button" (click)="onRemoveUnit(i)">Remove Unit</button>
+
+                <div class="form-group">
+                    <label for="originalPrice">Original Price of Unit:</label>
+                    <input type="text" id="originalPrice" class="form-control" formControlName="originalPrice">
+                    <span class="help-block" *ngIf="!unit.get('originalPrice').valid && 
+                        unit.get('originalPrice').touched">
+                        <span *ngIf="unit.get('originalPrice').errors['required']">This
+                            Field is
+                            Required</span>
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="initMonthlyRent">Initial Monthly Rent For Unit:</label>
+                    <input type="text" id="initMonthlyRent" class="form-control" formControlName="initMonthlyRent">
+                    <span class="help-block" *ngIf="!unit.get('initMonthlyRent').valid && 
+                        unit.get('initMonthlyRent').touched">
+                        <span *ngIf="unit.get('initMonthlyRent').errors['required']">This
+                            Field is
+                            Required</span>
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="rentYears">Number of years Rented By User:</label>
+                    <input type="text" id="rentYears" class="form-control" formControlName="rentYears">
+                    <span class="help-block" *ngIf="!unit.get('rentYears').valid && 
+                        unit.get('rentYears').touched">
+                        <span *ngIf="unit.get('rentYears').errors['required']">This
+                            Field is
+                            Required</span>
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="upgradeFeePercentage">Upgrade Fee Percentage:</label>
+                    <input type="text" id="upgradeFeePercentage" class="form-control"
+                        formControlName="upgradeFeePercentage">
+                    <span class="help-block"
+                        *ngIf="!unit.get('upgradeFeePercentage').valid && unit.get('upgradeFeePercentage').touched">
+                        <span *ngIf="unit.get('upgradeFeePercentage').errors['min'] ||
+                unit.get('upgradeFeePercentage').errors['max']
+                ">Please
+                            Enter a value between 0-100</span>
+                        <span *ngIf="unit.get('upgradeFeePercentage').errors['required']">This Field is
+                            Required</span>
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="annualRentIncreasePercentage">Annual Rent Increase Percentage:</label>
+                    <input type="text" id="annualRentIncreasePercentage" class="form-control"
+                        formControlName="annualRentIncreasePercentage">
+                    <span class="help-block"
+                        *ngIf="!unit.get('annualRentIncreasePercentage').valid && unit.get('annualRentIncreasePercentage').touched">
+                        <span *ngIf="unit.get('annualRentIncreasePercentage').errors['min'] ||
+                unit.get('annualRentIncreasePercentage').errors['max']
+                ">Please
+                            Enter a value between 0-100</span>
+                        <span *ngIf="unit.get('annualRentIncreasePercentage').errors['required']">This Field is
+                            Required</span>
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="annualAppreciationPercentage">Annual Appreciation Percentage:</label>
+                    <input type="text" id="annualAppreciationPercentage" class="form-control"
+                        formControlName="annualAppreciationPercentage">
+                    <span class="help-block"
+                        *ngIf="!unit.get('annualAppreciationPercentage').valid && unit.get('annualAppreciationPercentage').touched">
+                        <span *ngIf="unit.get('annualAppreciationPercentage').errors['min'] ||
+                unit.get('annualAppreciationPercentage').errors['max']
+                ">Please
+                            Enter a value between 0-100</span>
+                        <span *ngIf="unit.get('annualAppreciationPercentage').errors['required']">This Field is
+                            Required</span>
+                    </span>
+                </div>
+
+                <label for="annualAppreciationPercentage">Did the User Buy This Property:</label>
+                <div class="form-group">
+                    <div class="form-check form-check-inline" *ngFor="let bought of boughtBool">
+                        <label>
+                            <input class="form-check-input" type="radio" [value]="bought"
+                                formControlName="isBought">{{ bought? 'Yes' : 'No' }}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary w-100" type="submit" [disabled]="!calculatorForm.valid">Submit</button>
+        <span *ngIf="!calculatorForm.valid && calculatorForm.touched">Please Fill all empty fields or correct
+            values</span>
+    </form>
+</div>

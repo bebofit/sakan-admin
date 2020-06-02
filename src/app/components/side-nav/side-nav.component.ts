@@ -8,20 +8,20 @@ import { AdminService } from "src/app/services/admin.service";
 })
 export class SideNavComponent implements OnInit {
   items = [
-    {
-      name: "Dashboard",
-      icon: "dashboard",
-      path: "dashboard"
-    },
+    // {
+    //   name: "Dashboard",
+    //   icon: "dashboard",
+    //   path: "dashboard"
+    // },
     {
       name: "Property Requests",
       icon: "contact_support",
       path: "requests"
     },
     {
-      name: "Users",
+      name: "Calculator",
       icon: "person",
-      path: "users"
+      path: "calculator"
     }
   ];
 
